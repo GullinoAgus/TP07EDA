@@ -5,8 +5,8 @@ using json = nlohmann::json;
 std::list<std::string> procesamiento(json j, std::list<std::string> names)
 {
 	std::list<std::string> tweets; // lista donde guardaremos tweets
-	char* intro = j["user"]["name"] ;	// todo: nose bien como es la structura del json
-	std::string introduccion(intro);
+	//char* intro = j["user"]["name"] ;	// todo: nose bien como es la structura del json
+	std::string introduccion("Hola");
 	introduccion  += ": - ";
 	std::string terminador = " -";
 	for (auto c : names)
