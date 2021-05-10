@@ -14,6 +14,7 @@ public:
 
 	int getStatus();
 	bool download(std::list<std::string>& buffer, const char* usrname, unsigned int tweetCount = 0);
+	void cancelDownload();
 
 private:
 	int status;
