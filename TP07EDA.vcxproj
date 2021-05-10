@@ -139,11 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="allegro.cpp" />
+    <ClCompile Include="basicLCD.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PanaLCD.cpp" />
     <ClCompile Include="procesamiento.cpp" />
     <ClCompile Include="TweetDLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="allegro.h" />
+    <ClInclude Include="basicLCD.h" />
+    <ClInclude Include="PanaLCD.h" />
     <ClInclude Include="procesamiento.h" />
     <ClInclude Include="TweetDLoader.h" />
   </ItemGroup>
