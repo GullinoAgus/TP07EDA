@@ -36,4 +36,4 @@ void destroy_allegro(ALLEGRO_DISPLAY*& display) {
 
 }
 
-//aldrawtext
+aldrawtext

@@ -61,6 +61,11 @@ int TweetDLoader::getStatus()
 	return this->status;
 }
 
+void TweetDLoader::cancelDownload()
+{
+	this->status = IDLE;
+}
+
 
 bool TweetDLoader::download(std::list<std::string>& buffer, const char* usrname, unsigned int tweetCount)
 {
