@@ -11,7 +11,7 @@
 
 #include <string.h>
 
-std::list<std::string> procesamiento(nlohmann::json j, std::list<std::string> names, std::string usuario);
+bool procesamiento(json& tweetJSON, std::list<std::string>& tweetList);
 
 
 

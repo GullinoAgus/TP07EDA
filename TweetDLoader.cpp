@@ -1,5 +1,6 @@
 #include "TweetDLoader.h"
 #include <nlohmann/json.hpp>
+#include "procesamiento.h"
 
 using json = nlohmann::json;
 
@@ -63,6 +64,8 @@ int TweetDLoader::getStatus()
 
 void TweetDLoader::cancelDownload()
 {
+	curl_easy_cleanup(this->curl);
+	curl_multi_cleanup(this->multiCurl);
 	this->status = IDLE;
 }
 
@@ -131,7 +134,11 @@ bool TweetDLoader::download(std::list<std::string>& buffer, const char* usrname,
 			{
 				curl_easy_cleanup(this->curl);
 				curl_multi_cleanup(this->multiCurl);
+				json receivedJSON = json::parse(this->receivedData);
+				if (procesamiento(receivedJSON, buffer))
+				{
 
+				}
 				//TODO: Agregar parseo a lista
 				return 0;
 			}
