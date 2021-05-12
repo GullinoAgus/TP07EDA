@@ -209,8 +209,6 @@ int main(void)
 		std::cout << "Cannot download tweets. Unable to start cURL" << std::endl;
 
 	std::list<std::string> tweets;
-	std::string usuario = "La nacion";
-	tweets = procesamiento(j, names, usuario);
 	std::cout << tweets.front() << std:: endl << tweets.back() << std::endl;
 	//std::cout << j[0]["text"] << std::endl;
 	getchar();
