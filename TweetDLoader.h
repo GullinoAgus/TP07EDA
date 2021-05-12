@@ -5,7 +5,7 @@
 
 #define DEFAULT_TWEET_COUNT 1
 
-typedef enum {IDLE = 0, DOWNLOADING} state_t;
+enum { IDLE = 0, DOWNLOADING, DISPLAYING };
 
 class TweetDLoader
 {

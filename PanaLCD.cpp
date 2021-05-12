@@ -1,5 +1,6 @@
 #include "PanaLCD.h"
 
+enum errorcodes_t { OK = 0, INITERR };
 
 #define FONTSIZE 36
 
@@ -94,9 +95,9 @@ basicLCD& PanaLCD::operator<<(const unsigned char c)
     return *this;
 }
 
-basicLCD& PanaLCD::operator<<(const char* c)
+basicLCD& PanaLCD::operator<<(const unsigned char* c)
 {
-    std::string auxString(c);
+    std::string auxString((const char*)c);
     if (auxString.length() > (rowQuant * columnQuant))
     {
         cursorPos = cursorPosition{ 0, 0 };

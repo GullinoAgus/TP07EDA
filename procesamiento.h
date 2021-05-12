@@ -11,6 +11,8 @@
 
 #include <string.h>
 
+using json = nlohmann::json;
+
 bool procesamiento(json& tweetJSON, std::list<std::string>& tweetList);
 
 

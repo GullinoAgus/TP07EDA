@@ -1,4 +1,7 @@
-#include "lcd.h"
+#include "LCD_NACHO.h"
+
+enum {ERROR=0};
+using namespace std;
 
 lcd::lcd()
 {

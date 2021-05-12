@@ -3,7 +3,16 @@
 #define PANALCD_H
 
 #include "basicLCD.h"
-#include "allegro.h"
+//#include "allegro.h"
+#include "allegro5\allegro.h"
+#include <allegro5/allegro_color.h>
+#include <allegro5/allegro_image.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_primitives.h>
+
 
 #define FONTPATH "7SDD.ttf"
 
@@ -21,7 +30,7 @@ public:
     virtual bool lcdClear() override;
     virtual bool lcdClearToEOL() override;
     virtual basicLCD& operator<<(const unsigned char c) override;
-    virtual basicLCD& operator<<(const char* c) override;
+    virtual basicLCD& operator<<(const unsigned char* c) override;
     virtual bool lcdMoveCursorUp() override;
     virtual bool lcdMoveCursorDown() override;
     virtual bool lcdMoveCursorRight() override;

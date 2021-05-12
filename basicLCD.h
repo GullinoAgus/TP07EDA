@@ -1,32 +1,61 @@
-#pragma once
-#ifndef _BASICLCD_H
-#define _BASICLCD_H
+/***************************************************************************//**
+@file     +basicLCD.h+
+@brief    +Header padre+
+@author   +Grupo 2+
+******************************************************************************/
 
+#ifndef _BASICLDC_H_
+#define _BASICLDC_H_
+
+/******************************************************************************
+* INCLUDE HEADER FILES
+******************************************************************************/
+#include <string>
 #include <iostream>
 
+/*******************************************************************************
+* CONSTANT AND MACRO DEFINITIONS USING #DEFINE
+******************************************************************************/
+#define MAX_COL	15
+#define MIN_COL 0
+#define MAX_ROW 1
+#define MIN_ROW 0
 
-struct cursorPosition
-{
+/*******************************************************************************
+* ENUMERATIONS AND STRUCTURES AND TYPEDEFS
+******************************************************************************/
+struct cursorPosition {
 	int row;
 	int column;
 };
 
-enum errorcodes_t {OK = 0, INITERR};
-
-class lcdError
-{
+enum errors {
+	NOERROR = 0,
+	DispError,
+	FontError,
+	ImgError
+};
+/******************************************************************************
+* CLASS LCD ERORR
+******************************************************************************/
+class lcdError {
 public:
-	lcdError(std::string errorname_, std::string errordescription_, unsigned long errorcode_);
+	lcdError();
+	lcdError(std::string name, std::string description, unsigned long code);
 	std::string getErrorName();
 	std::string getErrorDescription();
 	unsigned long getErrorCode();
+
 private:
-	std::string errorname;
-	std::string errordesc;
-	unsigned long errorcode;
+	std::string name;
+	std::string description;
+	unsigned long code;
 };
-class basicLCD
-{
+
+/******************************************************************************
+* CLASS BASIC LCD
+******************************************************************************/
+class basicLCD {
 public:
 	/*=====================================================
 	* Name: basicLCD
@@ -37,14 +66,17 @@ public:
 	* cadd =1 (cursor address) (ver NOTA 1)
 	*=====================================================*/
 	basicLCD();
+
 	/*=====================================================
 	* Name: ~basicLCD
-	* Entra: -4/22
+	* Entra: -
+	4/22
 	* Resulta: Destructor de la clase. Libera cualquier recurso
 	* que se hubiera tomado de forma de evitar
 	* "resources leak".
 	*=====================================================*/
 	virtual ~basicLCD();
+
 	/*=====================================================
 	* Name: lcdInitOk
 	* Entra: -
@@ -54,6 +86,7 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdInitOk() = 0;
+
 	/*=====================================================
 	* Name: lcdGetError
 	* Entra: -
@@ -61,6 +94,7 @@ public:
 	* Devuelve en su nombre un lcdError&
 	*=====================================================*/
 	virtual lcdError& lcdGetError() = 0;
+
 	/*=====================================================
 	* Name: lcdClear
 	* Entra: -
@@ -70,6 +104,7 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdClear() = 0;
+
 	/*=====================================================
 	* Name: lcdClearToEOL
 	* Entra: -
@@ -80,6 +115,7 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdClearToEOL() = 0;
+
 	/*=====================================================
 	* Name: operator<<()
 	* Entra: Un carácter
@@ -94,6 +130,7 @@ public:
 	* lcd << ‘a’ << ‘b’ << ‘c’;
 	*=====================================================*/
 	virtual basicLCD& operator<<(const unsigned char c) = 0;
+
 	/*=====================================================
 	* Name: operator<<()
 	* Entra: Una cadena de caracteres NULL terminated
@@ -107,7 +144,8 @@ public:
 	* basicLCD lcd;
 	* lcd << “Hola” << “ “ << “Mundo”;
 	*=====================================================*/
-	virtual basicLCD& operator<<(const char* c) = 0;
+	virtual basicLCD& operator<<(const unsigned char* c) = 0;
+
 	/*=====================================================
 	* Name: lcdMoveCursorUp
 	*
@@ -119,6 +157,7 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdMoveCursorUp() = 0;
+
 	/*=====================================================
 	* Name: lcdMoveCursorDown
 	*
@@ -130,6 +169,7 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdMoveCursorDown() = 0;
+
 	/*=====================================================
 	* Name: lcdMoveCursorRight
 	*
@@ -140,6 +180,7 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdMoveCursorRight() = 0;
+
 	/*=====================================================
 	* Name: lcdMoveCursorLeft
 	*
@@ -150,17 +191,19 @@ public:
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdMoveCursorLeft() = 0;
+
 	/*=====================================================
 	* Name: lcdSetCursorPosition
 	* Entra: Recibe una estructura tipo cursorPosition
 	* Resulta: Posiciona el cursor en la posición dada
-	* por row y column. row[0-1] col[0-19]. Ante un valor inválido
+	* por row y column. row[0-1] col[0-15]. Ante un valor inválido
 	* de row y/o column ignora la instrucción (no hace nada).
 	*
 	* Devuelve en su nombre “true” si fue satisfactoria “false”
 	* en caso contrario.
 	*=====================================================*/
 	virtual bool lcdSetCursorPosition(const cursorPosition pos) = 0;
+
 	/*=====================================================
 	* Name: lcdGetCursorPosition
 	* Entra: -
@@ -172,5 +215,4 @@ public:
 	virtual cursorPosition lcdGetCursorPosition() = 0;
 };
 
-
-#endif
+#endif // _BASICLDC_H_

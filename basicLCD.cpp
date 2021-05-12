@@ -1,26 +1,49 @@
+/***************************************************************************//**
+@file     +basicLCD.cpp+
+@brief    +Funciones miembro no virtuales+
+@author   +Grupo 2+
+******************************************************************************/
+
+/******************************************************************************
+* INCLUDE HEADER FILES
+******************************************************************************/
 #include "basicLCD.h"
 
-basicLCD::basicLCD() {
-
+using namespace std;
+/******************************************************************************
+* MEMBER FUNTIONS CLASS: LCDERROR
+******************************************************************************/
+lcdError::lcdError() {
+	this->name = "No error";
+	this->description = "No errors so far";
+	this->code = NOERROR;
 }
 
-basicLCD::~basicLCD() {
-
+lcdError::lcdError(string name, string description, unsigned long code) {
+	this->name = name;
+	this->description = description;
+	this->code = code;
 }
 
-// error lcd
-lcdError::lcdError(std::string errorname_, std::string errordescription_, unsigned long errorcode_) : errorcode(errorcode_),
-																									errordesc(errordescription_),
-																									errorname(errorname_)
-{
+string lcdError::getErrorName() {
+	return name;
+}
 
+string lcdError::getErrorDescription() {
+	return description;
 }
-std::string lcdError::getErrorName() {
-	return errorname;
-}
-std::string lcdError::getErrorDescription() {
-	return errordesc;
-}
+
 unsigned long lcdError::getErrorCode() {
-	return errorcode;
+	return code;
+}
+
+/******************************************************************************
+* MEMBER FUNTIONS CLASS: BASICLCD
+******************************************************************************/
+basicLCD::basicLCD() 
+{
+}
+
+basicLCD::~basicLCD() 
+{
 }

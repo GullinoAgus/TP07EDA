@@ -139,22 +139,48 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="allegro.cpp" />
     <ClCompile Include="basicLCD.cpp" />
+    <ClCompile Include="Class_LUCIANO.C\DispL.cpp" />
+    <ClCompile Include="imgui.cpp" />
+    <ClCompile Include="imgui_demo.cpp" />
+    <ClCompile Include="imgui_draw.cpp" />
+    <ClCompile Include="imgui_impl_allegro5.cpp" />
+    <ClCompile Include="imgui_tables.cpp" />
+    <ClCompile Include="imgui_widgets.cpp" />
+    <ClCompile Include="LCD_NACHO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PanaLCD.cpp" />
     <ClCompile Include="procesamiento.cpp" />
     <ClCompile Include="TweetDLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="allegro.h" />
     <ClInclude Include="basicLCD.h" />
+    <ClInclude Include="Class_LUCIANO.C\DispL.h" />
+    <ClInclude Include="imconfig.h" />
+    <ClInclude Include="imgui.h" />
+    <ClInclude Include="imgui_impl_allegro5.h" />
+    <ClInclude Include="imgui_internal.h" />
+    <ClInclude Include="imstb_rectpack.h" />
+    <ClInclude Include="imstb_textedit.h" />
+    <ClInclude Include="imstb_truetype.h" />
+    <ClInclude Include="LCD_NACHO.h" />
     <ClInclude Include="PanaLCD.h" />
     <ClInclude Include="procesamiento.h" />
     <ClInclude Include="TweetDLoader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="caca.json" />
+    <None Include="imgui.ini" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="7SDD.TTF" />
+    <Font Include="arista.ttf" />
+    <Font Include="fuente.ttf" />
+    <Font Include="Genericons-Neue.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="background.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

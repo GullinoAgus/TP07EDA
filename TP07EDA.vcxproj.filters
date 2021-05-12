@@ -24,21 +24,39 @@
     <ClCompile Include="TweetDLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="allegro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="basicLCD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PanaLCD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_allegro5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD_NACHO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class_LUCIANO.C\DispL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TweetDLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="allegro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicLCD.h">
@@ -50,8 +68,48 @@
     <ClInclude Include="procesamiento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_allegro5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD_NACHO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Class_LUCIANO.C\DispL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="caca.json" />
+    <None Include="imgui.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="7SDD.TTF" />
+    <Font Include="arista.ttf" />
+    <Font Include="fuente.ttf" />
+    <Font Include="Genericons-Neue.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="background.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

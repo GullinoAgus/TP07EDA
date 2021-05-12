@@ -33,16 +33,16 @@ TweetDLoader::TweetDLoader(const char* API_key, const char* API_SecretKey) :
 		curl_easy_setopt(this->curl, CURLOPT_POSTFIELDSIZE, data.size());
 		curl_easy_setopt(this->curl, CURLOPT_POSTFIELDS, data.c_str());
 
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, receivedData);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &this->receivedData);
-		if (curl_easy_perform(curl) != CURLE_OK)
+		curl_easy_setopt(this->curl, CURLOPT_WRITEFUNCTION, recieveCallback);
+		curl_easy_setopt(this->curl, CURLOPT_WRITEDATA, &this->receivedData);
+		if (curl_easy_perform(this->curl) != CURLE_OK)
 		{
-			curl_easy_cleanup(curl);
+			curl_easy_cleanup(this->curl);
 			throw std::exception("ERR: Failed request to Twitter");
 
 		}
 
-		curl_easy_cleanup(curl);
+		curl_easy_cleanup(this->curl);
 
 		json recievedJson = json::parse(this->receivedData);
 		this->token = recievedJson["access_token"];
@@ -108,7 +108,7 @@ bool TweetDLoader::download(std::list<std::string>& buffer, const char* usrname,
 			list = curl_slist_append(list, aux.c_str());
 			curl_easy_setopt(this->curl, CURLOPT_HTTPHEADER, list);
 
-			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, receivedData);
+			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, recieveCallback);
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &this->receivedData);
 
 			curl_multi_perform(this->multiCurl, &this->status);
